@@ -1,7 +1,7 @@
 const { DiscordAPIError } = require("discord.js");
 const Event = require("../../Structure/Event");
-const transcript = require("discord-html-transcripts");
 const Discord = require("discord.js");
+const db = require("../../Structure/Database");
 
 module.exports = new Event("interactionCreate", async (bot, interaction) => {
 
@@ -46,10 +46,18 @@ module.exports = new Event("interactionCreate", async (bot, interaction) => {
         const selected = interaction.values[0];
         if (interaction.customId === 'select_language'){
             if (selected === 'en'){
+                db.query(`UPDATE server SET languages = 'en' WHERE id_server = '${interaction.guild.id}'`, function (err, result) {
+                    if (err) throw err;
+                    console.log(`La langue du serveur ${interaction.guild.name} (id: ${interaction.guild.id}) a été changée en anglais`);
+                });
                 interaction.reply({ content: '🇬🇧 You have selected the English language !', ephemeral: true })
             }
             if(selected === 'fr'){
                 interaction.reply({ content: '🇫🇷 Vous avez sélectionné la langue française !', ephemeral: true })
+                db.query(`UPDATE server SET languages = 'fr' WHERE id_server = '${interaction.guild.id}'`, function (err, result) {
+                    if (err) throw err;
+                    console.log(`La langue du serveur ${interaction.guild.name} (id: ${interaction.guild.id}) a été changée en français`);
+                });
             }
         }
     }

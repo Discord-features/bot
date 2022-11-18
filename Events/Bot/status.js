@@ -5,12 +5,14 @@ const SlashCommand = require("../../Structure/SlashCommand");
 module.exports = new Event("ready", async bot => {
 
     console.log(`${bot.user.username} : En ligne sur ${bot.guilds.cache.size} serveur(s)`)
-    
-    bot.user.setStatus("online")
+    bot.user.setPresence(`👋 | ${bot.guilds.cache.size} serveurs`, { type: 3 })
 
-    const activities = "Malkirth serveurs (v14)"
-
-    bot.user.setActivity(activities, { type: "COMPETING"})
-
+    bot.user.setPresence({
+        activities: [{
+            name: `👋 | ${bot.guilds.cache.size} serveurs`,
+            type: 3
+        }],
+        status: 'online'
+    });
     await SlashCommand(bot)
 })
