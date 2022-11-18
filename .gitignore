@@ -1,5 +1,7 @@
 config.json
 node_modules
-Structure
+Structure/Client.js
+Structure/Command.js
+Structure/Database.js
 package-lock.json
 package.json
