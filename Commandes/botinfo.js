@@ -10,13 +10,14 @@ module.exports = new Command({
     async run(bot, message, args, db){
   
 
-  db.query(`SELECT * FROM server WHERE id_server = ${message.guild.id}`, async (err, req) => {
-       const languages =  await req.languages;
+db.query(`SELECT * FROM server WHERE id_server = ${message.guild.id}`, async (err, req) => {
+       if (err) throw err;
+       const languages =  await req[0].languages;
        if(languages === "fr"){
-        console.log("fr")
+        
        }
        else if(languages === "en"){
-        console.log("en")
-       }
-    })
+        
+         }
+})
 }})
