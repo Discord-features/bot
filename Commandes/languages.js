@@ -27,6 +27,12 @@ module.exports = new Command({
                             emoji: '🇫🇷',
 							value: 'fr',
 						},
+						{
+							label: 'Deutsch',
+							description: 'Wählen Sie die deutsche Sprache',
+							emoji: '🇩🇪',
+							value: 'de',
+						},
 					),
 			);
 

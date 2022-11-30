@@ -59,6 +59,12 @@ module.exports = new Event("interactionCreate", async (bot, interaction) => {
                     console.log(`La langue du serveur ${interaction.guild.name} (id: ${interaction.guild.id}) a été changée en français`);
                 });
             }
+            if(selected === 'de'){
+                interaction.reply({ content: '🇩🇪 Sie haben die deutsche Sprache ausgewählt !', ephemeral: true })
+                db.query(`UPDATE server SET languages = 'de' WHERE id_server = '${interaction.guild.id}'`, function (err, result) {
+                    if (err) throw err;
+                    console.log(`La langue du serveur ${interaction.guild.name} (id: ${interaction.guild.id}) a été changée en allemand`);
+                });
         }
-    }
-})
+        }}
+    })

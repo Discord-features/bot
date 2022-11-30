@@ -30,9 +30,31 @@ module.exports = new Command({
                    { name: '</beta-tester:1045403989845479442>', value: "Obtenez des informations sur la façon de devenir un testeur bêta"},
                    )
                    .setTimestamp()
-                   .setFooter({ text: "demander par " + message.user.username, iconURL: message.user.avatarURL() })
+                   .setFooter({ text: "Demander par " + message.user.username, iconURL: message.user.avatarURL() })
                 message.reply({ embeds: [fr_help] });    
                 }
+            if(languages === "de"){
+            const de_help = new EmbedBuilder()
+            .setColor(0x0099FF)
+            .setTitle("Hilfe")
+            .setDescription("Hier ist die Liste der Befehle des Bots")
+            .addFields(
+                { name: '</languages:1045403989845479434>', value: 'Wählen Sie die Sprache des Bots aus' },
+                { name: '</botinfo:1045403989845479435>', value: 'Erhalten Sie Informationen über den Bot' },
+                { name: '</help:1045403989845479436>', value: 'Erhalten Sie Hilfe' },
+                { name: '</list:1045403989845479437>', value: 'Erhalten Sie eine Liste der Discord-Funktionen im Beta-Test' },
+                { name: '</ping:1045403989845479438>', value: 'Erhalten Sie die Ping-Zeit des Bots' },
+                { name: '</website:1045403989845479439>', value: 'Erhalten Sie den Link zur Website des Bots' },
+                { name: '</support:1045403989845479438>', value: 'Erhalten Sie den Support-Server des Bots' },
+                { name: '</invite:1045403989845479440>', value: 'Erhalten Sie den Einladungslink des Bots' },
+                { name: '</beta:1045403989845479440>', value: 'Erhalten Sie Informationen darüber, wie Discord-Betas funktionieren'},
+                { name: '</report:1045403989845479441>', value: 'Etwas melden' },
+                { name: '</beta-tester:1045403989845479442>', value: "Erhalten Sie Informationen darüber, wie Sie ein Beta-Tester werden"},
+                )
+            .setTimestamp()
+            .setFooter({ text: "Gefragt von " + message.user.username, iconURL: message.user.avatarURL() })
+            message.reply({ embeds: [de_help] });    
+            }    
             else{
              const en_help = new EmbedBuilder()
                 .setColor(0x0099FF)
