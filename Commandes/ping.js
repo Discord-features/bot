@@ -7,6 +7,6 @@ module.exports = new Command({
 	cooldown: 5, 
 
     async run(bot, message, args, db){
-        message.reply("🏓Pong ``" + Date.now() - message.createdTimestamp + "`` !");
+        message.reply("🏓Pong ``" + Math.abs(Date.now() - message.createdTimestamp) + "`` !");
     }
 })
