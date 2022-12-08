@@ -46,8 +46,9 @@ module.exports = async(bot) => {
         .setDescription('Get the list of discord features in beta')
         .setDescriptionLocalizations({
             fr: 'Obtenez la liste des fonctionnalités discord en bêta',
-        })
+        }),
         //ping
+        new SlashCommandBuilder()
         .setName("ping")
         .setNameLocalizations({
             fr: 'ping',
